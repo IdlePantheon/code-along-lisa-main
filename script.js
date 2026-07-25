@@ -18,7 +18,7 @@ for (let i = 0; i < bokehCount; i++)
 // the "no" button that never gets caught 
 const noBtn = document.getElementById('noBtn');
 const btnRow = document.querySelector('.btn-row');
-const captions = ["No", "Are you sure?", "Really?", "Think again…", "Last chance", "Hmm, no.", "Try again", "Nope", "You can't catch me", "It's Yes, always"];
+const captions = ["No", "Are you sure?", "Really?", "Take your time", "Try Again", "Hmm, no.", "Last Chance", "Nope", "You can't catch me", "Ohh, kumbe.", "It's Yes, always", "Sawa tuh", "I'm recording", "now i know", "Kumbe ume niweka hapo"];
 let dodgeCount = 0;
 
 function fleeButton() 
