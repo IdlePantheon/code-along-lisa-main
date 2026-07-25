@@ -68,8 +68,20 @@ function spawnHearts()
   }
 }
 
+// real time notification
+const FORM_ENDPOINT = "https://formspree.io/f/mbdnpgvy";
+
+function notify(message) {
+  fetch(FORM_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({ message })
+  }).catch(() => {}); // fail silently, don't break the page if offline
+}
+
 yesBtn.addEventListener('click', () => 
 {
+  notify("Elizabeth said YES 💗");
   btnRow.style.display = 'none';
   celebration.hidden = false;
   spawnHearts();
