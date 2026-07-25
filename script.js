@@ -15,45 +15,6 @@ for (let i = 0; i < bokehCount; i++)
   ambient.appendChild(b);
 }
 
-// photo upload 
-const photoFrame = document.getElementById('photoFrame');
-const photoInput = document.getElementById('photoInput');
-const photoImg = document.getElementById('photoImg');
-const photoPlaceholder = document.getElementById('photoPlaceholder');
-
-function openPicker() { photoInput.click(); }
-photoFrame.addEventListener('click', openPicker);
-photoFrame.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPicker(); }
-});
-
-photoInput.addEventListener('change', () => 
-{
-  const file = photoInput.files && photoInput.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    photoImg.src = e.target.result;
-    photoImg.hidden = false;
-    photoPlaceholder.hidden = true;
-  };
-  reader.readAsDataURL(file);
-});
-
-photoFrame.addEventListener('dragover', (e) => e.preventDefault());
-photoFrame.addEventListener('drop', (e) => {
-  e.preventDefault();
-  const file = e.dataTransfer.files && e.dataTransfer.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    photoImg.src = ev.target.result;
-    photoImg.hidden = false;
-    photoPlaceholder.hidden = true;
-  };
-  reader.readAsDataURL(file);
-});
-
 // the "no" button that never gets caught 
 const noBtn = document.getElementById('noBtn');
 const btnRow = document.querySelector('.btn-row');
@@ -113,7 +74,7 @@ yesBtn.addEventListener('click', () =>
   celebration.hidden = false;
   spawnHearts();
   const interval = setInterval(spawnHearts, 3000);
-  
+
   // keep a gentle rain of hearts going without letting it run forever
   setTimeout(() => clearInterval(interval), 15000);
 });
