@@ -1,4 +1,5 @@
-:root{
+:root
+{
   --bg-deep:#1b0a1f;
   --bg-mid:#3a1440;
   --bg-wine:#5a1a3f;
@@ -11,7 +12,8 @@
 
 *{box-sizing:border-box;}
 
-html,body{
+html,body
+{
   margin:0;
   min-height:100%;
   background:
@@ -24,23 +26,29 @@ html,body{
   overflow-x:hidden;
 }
 
-/* ---------- ambient bokeh ---------- */
-.ambient{position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none;}
-.bokeh{
+/* ambient bokeh  */
+.ambient
+{
+  position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none;
+}
+.bokeh
+{
   position:absolute; border-radius:50%;
   background:radial-gradient(circle, rgba(242,201,220,0.35), transparent 70%);
   filter:blur(2px);
   animation:drift linear infinite;
 }
-@keyframes drift{
+@keyframes drift
+{
   0%{ transform:translateY(0) translateX(0); opacity:0;}
   10%{opacity:0.8;}
   90%{opacity:0.6;}
   100%{ transform:translateY(-110vh) translateX(20px); opacity:0;}
 }
 
-/* ---------- layout ---------- */
-main.card{
+/* layout */
+main.card
+{
   position:relative; z-index:1;
   max-width:640px;
   margin:6vh auto 8vh;
@@ -52,13 +60,15 @@ main.card{
   box-shadow:0 30px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-/* ---------- orbit + photo locket ---------- */
-.orbit-wrap{
+/* orbit + photo locket  */
+.orbit-wrap
+{
   position:relative;
   width:200px; height:200px;
   margin:0 auto 18px;
 }
-.orbit-ring{
+.orbit-ring
+{
   position:absolute; inset:-26px;
   animation:spin 22s linear infinite;
 }
@@ -66,17 +76,37 @@ main.card{
   .orbit-ring{animation:none;}
   .bokeh{animation:none; opacity:0.3;}
 }
-@keyframes spin{ to { transform:rotate(360deg); } }
-.celestial{
+@keyframes spin
+{ 
+  to 
+    { 
+      transform:rotate(360deg); 
+    } 
+}
+.celestial
+{
   position:absolute;
   width:26px; height:26px;
   animation:counter-spin 22s linear infinite;
 }
-@keyframes counter-spin{ to { transform:rotate(-360deg); } }
-.celestial.sun{ top:0; left:50%; margin-left:-13px; }
-.celestial.moon{ bottom:0; left:50%; margin-left:-13px; }
+@keyframes counter-spin
+{ 
+  to 
+    { 
+      transform:rotate(-360deg); 
+    } 
+}
+.celestial.sun
+{ 
+  top:0; left:50%; margin-left:-13px; 
+}
+.celestial.moon
+{ 
+  bottom:0; left:50%; margin-left:-13px; 
+}
 
-.photo-frame{
+.photo-frame
+{
   position:relative;
   width:200px; height:200px;
   border-radius:50%;
@@ -87,29 +117,34 @@ main.card{
   display:flex; align-items:center; justify-content:center;
 }
 
-.photo-img{
+.photo-img
+{
   width:100%; height:100%; object-fit:cover; display:block;
 }
 
 /* ---------- text ---------- */
-.eyebrow{
+.eyebrow
+{
   text-align:center; text-transform:uppercase; letter-spacing:0.25em;
   font-family:'Cinzel', serif; font-size:0.7rem; color:var(--accent-gold);
   margin:6px 0 2px;
 }
-h1.salutation{
+h1.salutation
+{
   text-align:center; font-family:'Parisienne', cursive; font-weight:400;
   font-size:clamp(2.4rem, 7vw, 3.2rem); color:var(--accent-blush);
   margin:0 0 18px;
 }
 
-.letter p{
+.letter 
+p{
   font-size:clamp(1.05rem, 2.2vw, 1.2rem);
   line-height:1.75;
   color:var(--text-light);
   margin:0 0 20px;
 }
-.letter p:first-of-type::first-letter{
+.letter p:first-of-type::first-letter
+{
   font-family:'Cinzel', serif;
   font-size:2.6rem;
   float:left;
@@ -118,8 +153,12 @@ h1.salutation{
   color:var(--accent-gold);
 }
 
-.signoff{ margin-top:30px; text-align:right; font-size:1.15rem !important; color:var(--text-soft) !important; }
-.signoff .script{
+.signoff
+{ 
+  margin-top:30px; text-align:right; font-size:1.15rem !important; color:var(--text-soft) !important; 
+}
+.signoff .script
+{
   display:inline-block; margin-top:2px;
   font-family:'Parisienne', cursive; font-size:1.8rem; color:var(--accent-blush);
 }
@@ -128,7 +167,7 @@ h1.salutation{
 .divider .line{ flex:1; max-width:120px; height:1px; background:linear-gradient(90deg, transparent, var(--accent-gold), transparent); }
 .divider .glyph{ color:var(--accent-gold); font-size:1rem; }
 
-/* ---------- proposal ---------- */
+/* proposal  */
 .proposal{ text-align:center; }
 .proposal h2{
   font-family:'Parisienne', cursive; font-weight:400;
@@ -141,55 +180,73 @@ h1.salutation{
   display:flex; justify-content:center; gap:22px;
   min-height:64px;
 }
-.btn{
+.btn
+{
   font-family:'Cinzel', serif; font-size:0.95rem; letter-spacing:0.04em;
   padding:14px 30px; border-radius:999px; cursor:pointer;
   transition:transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
-.btn.yes{
+.btn.yes
+{
   border:none; color:#2a0e2f; font-weight:600;
   background:linear-gradient(135deg, var(--accent-blush), var(--accent-gold));
   box-shadow:0 8px 24px rgba(201,64,126,0.35);
 }
-.btn.yes:hover{ transform:translateY(-2px) scale(1.04); box-shadow:0 12px 30px rgba(201,64,126,0.5); }
-.btn.yes:focus-visible{ outline:3px solid var(--accent-blush); outline-offset:3px; }
-
-.btn.no{
-  background:transparent; color:var(--text-soft);
-  border:1px solid rgba(227,198,214,0.4);
-  position:relative;
+.btn.yes:hover
+{ 
+  transform:translateY(-2px) scale(1.04); box-shadow:0 12px 30px rgba(201,64,126,0.5); 
 }
-.btn.no.fleeing{
+.btn.yes:focus-visible
+{ 
+  outline:3px solid var(--accent-blush); outline-offset:3px; 
+}
+
+.btn.no
+{
+  background: linear-gradient(135deg, var(--bg-wine), var(--accent-pink));
+  color:var(--text-light);
+  border:1px solid var(--accent-gold);
+  position:relative;
+  box-shadow:0 6px 18px rgba(0,0,0,0.45)
+}
+.btn.no.fleeing
+{
   position:fixed;
   z-index:50;
 }
 
-.celebration{
+.celebration
+{
   text-align:center; margin-top:30px;
   animation:fade-in 0.6s ease;
 }
 @keyframes fade-in{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
-.celebration p{
+.celebration
+p{
   font-family:'Parisienne', cursive; font-size:clamp(1.5rem, 5vw, 2rem);
   color:var(--accent-blush); margin:0;
 }
 
 .hearts-layer{ position:fixed; inset:0; pointer-events:none; z-index:40; overflow:hidden; }
-.float-heart{
+.float-heart
+{
   position:absolute; bottom:-40px; font-size:1.4rem;
   animation:rise linear forwards;
   opacity:0.9;
 }
-@keyframes rise{
+@keyframes rise
+{
   to{ transform:translateY(-110vh) translateX(var(--drift, 0px)) rotate(360deg); opacity:0; }
 }
 
-footer.credit{
+footer.credit
+{
   text-align:center; margin-top:40px; font-size:0.75rem;
   color:rgba(227,198,214,0.4); letter-spacing:0.05em;
 }
 
-@media (max-width:420px){
+@media (max-width:420px)
+{
   .orbit-wrap, .photo-frame{ width:150px; height:150px; }
   .orbit-ring{ inset:-20px; }
   .btn-row{ flex-direction:row; flex-wrap:wrap; }
