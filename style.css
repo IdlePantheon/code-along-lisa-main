@@ -10,7 +10,10 @@
   --text-soft:#e3c6d6;
 }
 
-*{box-sizing:border-box;}
+*
+{
+  box-sizing:border-box;
+}
 
 html,body
 {
@@ -31,6 +34,7 @@ html,body
 {
   position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none;
 }
+
 .bokeh
 {
   position:absolute; border-radius:50%;
@@ -67,12 +71,15 @@ main.card
   width:200px; height:200px;
   margin:0 auto 18px;
 }
+
 .orbit-ring
 {
   position:absolute; inset:-26px;
   animation:spin 22s linear infinite;
 }
-@media (prefers-reduced-motion: reduce){
+
+@media (prefers-reduced-motion: reduce)
+{
   .orbit-ring{animation:none;}
   .bokeh{animation:none; opacity:0.3;}
 }
@@ -122,13 +129,14 @@ main.card
   width:100%; height:100%; object-fit:cover; display:block;
 }
 
-/* ---------- text ---------- */
+/* text */
 .eyebrow
 {
   text-align:center; text-transform:uppercase; letter-spacing:0.25em;
   font-family:'Cinzel', serif; font-size:0.7rem; color:var(--accent-gold);
   margin:6px 0 2px;
 }
+
 h1.salutation
 {
   text-align:center; font-family:'Parisienne', cursive; font-weight:400;
@@ -143,6 +151,7 @@ p{
   color:var(--text-light);
   margin:0 0 20px;
 }
+
 .letter p:first-of-type::first-letter
 {
   font-family:'Cinzel', serif;
@@ -157,50 +166,73 @@ p{
 { 
   margin-top:30px; text-align:right; font-size:1.15rem !important; color:var(--text-soft) !important; 
 }
+
 .signoff .script
 {
   display:inline-block; margin-top:2px;
   font-family:'Parisienne', cursive; font-size:1.8rem; color:var(--accent-blush);
 }
 
-.divider{ display:flex; justify-content:center; align-items:center; gap:14px; margin:36px 0 30px; }
-.divider .line{ flex:1; max-width:120px; height:1px; background:linear-gradient(90deg, transparent, var(--accent-gold), transparent); }
-.divider .glyph{ color:var(--accent-gold); font-size:1rem; }
+.divider
+{ 
+  display:flex; justify-content:center; align-items:center; gap:14px; margin:36px 0 30px; 
+}
+.divider .line
+{ 
+  flex:1; max-width:120px; height:1px; background:linear-gradient(90deg, transparent, var(--accent-gold), transparent); 
+}
+.divider .glyph
+{ 
+  color:var(--accent-gold); font-size:1rem; 
+}
 
 /* proposal  */
-.proposal{ text-align:center; }
-.proposal h2{
+.proposal
+{ 
+  text-align:center; 
+}
+
+.proposal h2
+{
   font-family:'Parisienne', cursive; font-weight:400;
   font-size:clamp(1.7rem, 5vw, 2.2rem);
   color:var(--accent-blush);
   margin:0 0 26px;
 }
-.btn-row{
+
+.btn-row
+{
   position:relative;
   display:flex; justify-content:center; gap:22px;
   min-height:64px;
 }
+
 .btn
 {
   font-family:'Cinzel', serif; font-size:0.95rem; letter-spacing:0.04em;
   padding:14px 30px; border-radius:999px; cursor:pointer;
   transition:transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
+
+/* Yes button*/
 .btn.yes
 {
   border:none; color:#2a0e2f; font-weight:600;
   background:linear-gradient(135deg, var(--accent-blush), var(--accent-gold));
   box-shadow:0 8px 24px rgba(201,64,126,0.35);
 }
+
 .btn.yes:hover
 { 
   transform:translateY(-2px) scale(1.04); box-shadow:0 12px 30px rgba(201,64,126,0.5); 
 }
+
 .btn.yes:focus-visible
 { 
   outline:3px solid var(--accent-blush); outline-offset:3px; 
 }
 
+/* no button*/
 .btn.no
 {
   background: linear-gradient(135deg, var(--bg-wine), var(--accent-pink));
@@ -209,31 +241,42 @@ p{
   position:relative;
   box-shadow:0 6px 18px rgba(0,0,0,0.45)
 }
+
 .btn.no.fleeing
 {
   position:fixed;
   z-index:50;
 }
-
+/* Celebration*/
 .celebration
 {
   text-align:center; margin-top:30px;
   animation:fade-in 0.6s ease;
 }
-@keyframes fade-in{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+@keyframes fade-in
+{ 
+  from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} 
+}
+
 .celebration
 p{
   font-family:'Parisienne', cursive; font-size:clamp(1.5rem, 5vw, 2rem);
   color:var(--accent-blush); margin:0;
 }
 
-.hearts-layer{ position:fixed; inset:0; pointer-events:none; z-index:40; overflow:hidden; }
+.hearts-layer
+{ 
+  position:fixed; inset:0; pointer-events:none; z-index:40; overflow:hidden; 
+}
+
 .float-heart
 {
   position:absolute; bottom:-40px; font-size:1.4rem;
   animation:rise linear forwards;
   opacity:0.9;
 }
+
 @keyframes rise
 {
   to{ transform:translateY(-110vh) translateX(var(--drift, 0px)) rotate(360deg); opacity:0; }

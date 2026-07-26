@@ -18,9 +18,8 @@ for (let i = 0; i < bokehCount; i++)
 // the "no" button that never gets caught 
 const noBtn = document.getElementById('noBtn');
 const btnRow = document.querySelector('.btn-row');
-const captions = ["No", "Are you sure?", "Really?", "Take your time", "Try Again", "Hmm, no.", "Last Chance", "Nope", "You can't catch me", "Ohh, kumbe.", "It's Yes, always", "Sawa tuh", "I'm recording", "now i know", "Kumbe ume niweka hapo"];
+const captions = ["No", "Are you sure?", "Really?", "Take your time", "Try Again", "Hmm, no.", "Last Chance", "Nope", "You can't catch me", "Ohh, kumbe.", "It's Yes, always", "Sawa tuh", "I'm recording", "now i know", "Kumbe ume niweka hapo", "Sawa tuh,"];
 let dodgeCount = 0;
-
 function fleeButton() 
 {
   dodgeCount++;
@@ -34,7 +33,6 @@ function fleeButton()
   const maxY = window.innerHeight - h - margin;
   const x = margin + Math.random() * Math.max(1, maxX - margin);
   const y = margin + Math.random() * Math.max(1, maxY - margin);
-
   noBtn.style.left = x + 'px';
   noBtn.style.top = y + 'px';
 }
@@ -52,29 +50,35 @@ const heartsLayer = document.getElementById('heartsLayer');
 function spawnHearts() 
 {
   const symbols = ['❤', '💗', '🌙', '☀️', '✦'];
-  for (let i = 0; i < 40; i++) {
-    setTimeout(() => 
+  for (let i = 0; i < 40; i++) 
     {
-      const h = document.createElement('span');
-      h.className = 'float-heart';
-      h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      h.style.left = Math.random() * 100 + 'vw';
-      h.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
-      h.style.animationDuration = (4 + Math.random() * 4) + 's';
-      h.style.fontSize = (1 + Math.random() * 1.4) + 'rem';
-      heartsLayer.appendChild(h);
-      setTimeout(() => h.remove(), 9000);
-    }, i * 120);
+      setTimeout(() => 
+      {
+        const h = document.createElement('span');
+        h.className = 'float-heart';
+        h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+        h.style.animationDuration = (4 + Math.random() * 4) + 's';
+        h.style.fontSize = (1 + Math.random() * 1.4) + 'rem';
+        heartsLayer.appendChild(h);
+        setTimeout(() => h.remove(), 9000);
+      }, i * 120);
   }
 }
 
 // real time notification
 const FORM_ENDPOINT = "https://formspree.io/f/mbdnpgvy";
 
-function notify(message) {
-  fetch(FORM_ENDPOINT, {
+function notify(message) 
+{
+  fetch(FORM_ENDPOINT, 
+  {
     method: "POST",
-    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      headers: 
+      { 
+        "Content-Type": "application/json", "Accept": "application/json" 
+      },
     body: JSON.stringify({ message })
   }).catch(() => {}); // fail silently, don't break the page if offline
 }
@@ -86,7 +90,6 @@ yesBtn.addEventListener('click', () =>
   celebration.hidden = false;
   spawnHearts();
   const interval = setInterval(spawnHearts, 3000);
-
   // keep a gentle rain of hearts going without letting it run forever
   setTimeout(() => clearInterval(interval), 15000);
 });
